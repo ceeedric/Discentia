@@ -6,6 +6,17 @@
 
 {% block body %}
 <div class="content">
-test
+    {% if session %}
+        <p>Welcome, {{ session.user.userinfo.name }}, This is the home page</p>
+        <p><a href="/logout">Logout</a></p>
+        <p><a href="/dashboard">Dashboard</a></p>
+
+        <div>
+            <pre>{{pretty}}</pre>
+        </div>
+    {% else %}
+        Welcome guest!
+        <a href="/login">Login</a>
+    {% endif %}
 </div>
 {% endblock %}
