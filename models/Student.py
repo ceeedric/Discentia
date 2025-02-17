@@ -7,7 +7,9 @@ class Student(Base):
     __tablename__ = 'students'
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String)
-    assignments = relationship('Assignment', back_populates='students', cascade='all, delete-orphan')
+
+    assignments = relationship('Assignment', back_populates='student', cascade='all, delete-orphan')
+    email = Column(String, unique=True)
 
     # Many-to-one with teacher
     teacher = relationship('Teacher', back_populates='students')

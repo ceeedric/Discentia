@@ -6,5 +6,6 @@ class Teacher(Base):
     __tablename__ = 'teachers'
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String)
+    email = Column(String, unique=True)
 
-    students = relationship('Student', back_populates='teachers')
+    students = relationship('Student', back_populates='teacher')
